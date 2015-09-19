@@ -6,4 +6,4 @@ then
     rm -f .install_host
 fi
 
-/usr/local/bin/node node_modules/iobroker.js-controller/controller.js
+/usr/bin/node node_modules/iobroker.js-controller/controller.js

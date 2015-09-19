@@ -1,14 +1,19 @@
-FROM mhart/alpine-node:0.12
+#FROM node:4.0
+FROM node:0.12
+#FROM node:0.10
+
 MAINTAINER Alexander Kentner "akentner@lexsign.de"
 
-RUN apk add --update \
-    bash \
-    python \
-    build-base \
-    krb5-dev
+RUN apt-get update && apt-get install -y \
+    apt-utils
 
-RUN mkdir -p /opt/iobroker \
-    && adduser -h /opt/iobroker -s /bin/bash -D iobroker \
+RUN apt-get update && apt-get install -y \
+#    vim \
+#    bash \
+    build-essential
+
+RUN useradd -d /opt/iobroker iobroker \
+    && mkdir -p /opt/iobroker \
     && chown iobroker /opt/iobroker
 
 RUN if [ ! -f "/usr/bin/iobroker" ]; then \
@@ -62,3 +67,4 @@ EXPOSE 1880
 
 CMD /opt/iobroker/run.sh
 #CMD /bin/bash
+

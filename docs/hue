@@ -1,0 +1,4 @@
+2bba947388911bf23574b3734d035af
+
+
+$ docker create -v /dbdata --name dbdata training/postgres /bin/true

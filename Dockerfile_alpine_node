@@ -3,12 +3,10 @@ MAINTAINER Alexander Kentner "akentner@lexsign.de"
 
 RUN apk add --update \
     bash \
-    python \
-    build-base \
-    krb5-dev
+    build-base
 
-RUN mkdir -p /opt/iobroker \
-    && adduser -h /opt/iobroker -s /bin/bash -D iobroker \
+RUN adduser -h /opt/iobroker -s /bin/bash -D iobroker \
+    && mkdir -p /opt/iobroker 
     && chown iobroker /opt/iobroker
 
 RUN if [ ! -f "/usr/bin/iobroker" ]; then \
@@ -60,5 +58,6 @@ EXPOSE 8081
 EXPOSE 8082
 EXPOSE 1880
 
-CMD /opt/iobroker/run.sh
-#CMD /bin/bash
+#CMD /opt/iobroker/run.sh
+CMD /bin/bash
+
