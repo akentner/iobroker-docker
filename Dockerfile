@@ -5,8 +5,7 @@ RUN apk add --update \
     bash \
     python \
     build-base \
-    krb5-dev \
-
+    krb5-dev
 
 RUN mkdir -p /opt/iobroker \
     && adduser -h /opt/iobroker -s /bin/bash -D iobroker \
