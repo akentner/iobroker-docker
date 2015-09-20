@@ -5,7 +5,8 @@ RUN apk add --update \
     bash \
     python \
     build-base \
-    krb5-dev
+    krb5-dev \
+
 
 RUN mkdir -p /opt/iobroker \
     && adduser -h /opt/iobroker -s /bin/bash -D iobroker \
@@ -59,6 +60,7 @@ RUN iobroker add vis
 EXPOSE 8081
 EXPOSE 8082
 EXPOSE 1880
+EXPOSE 8090
 
 CMD /opt/iobroker/run.sh
 #CMD /bin/bash
